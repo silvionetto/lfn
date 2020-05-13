@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="header"></div>
+
+<body>
+<div th:insert="menu"></div>
+
+<div th:insert="header :: title"></div>
+
+<main>
+    <div class="container-fluid mt-5">
+        <h1>Categories</h1>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/category">New</a>
+            </li>
+        </ul>
+    </div>
+
+    <table width="100%" class="table table-hover">
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td>
+                <a href="/category" th:href="@{'/category/'+${category.name}}"
+                   th:text="${category.name}">Category</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<div th:insert="footer"></div>
+</body>
+
+</html>
